@@ -136,311 +136,190 @@ export default function App() {
       />
 
       <main className="flex-1">
-        {/* VIEW 1: HOME PAGE */}
+        {/* VIEW 1: HOME PAGE (Pure Home Screen with 5-Project Slideshow & Dedicated Page Portals) */}
         {activeTab === 'home' && (
-          <div>
-            {/* Hero Section */}
+          <div className="bg-slate-950 text-white">
+            {/* Hero Section: 5-Project Autoplay Slideshow */}
             <Hero
               onExploreProducts={() => handleNavigate('products')}
               onRequestQuote={handleRequestQuote}
+              onSelectProjectForInquiry={handleSelectProjectForInquiry}
+              onNavigateToProjects={() => handleNavigate('projects')}
+              onNavigateToAffiliates={() => handleNavigate('affiliates')}
             />
 
-            {/* International Technical Affiliates Spotlight Ribbon */}
-            <section className="py-12 bg-white border-b border-slate-200">
+            {/* Direct Gateway to Dedicated Pages */}
+            <section className="py-16 sm:py-20 bg-gradient-to-b from-slate-950 to-slate-900 border-t border-slate-800">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-slate-100">
-                  <div>
-                    <div className="text-xs font-bold uppercase tracking-wider text-amber-700">
-                      Technical Partnerships
-                    </div>
-                    <h2 className="text-xl sm:text-2xl font-bold text-slate-900 font-display">
-                      Engineered with World-Class International Affiliates
-                    </h2>
+                
+                {/* Header */}
+                <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-widest">
+                    <span>Explore Our Dedicated Portals</span>
                   </div>
-                  <button
-                    onClick={() => handleNavigate('affiliates')}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-900 hover:text-amber-700 transition-colors cursor-pointer"
+                  <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-display tracking-tight text-balance">
+                    Dedicated Departments & Complete Portfolios
+                  </h2>
+                  <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+                    Select a section below to explore our verified systems, European technical affiliations, and executed project history across Nigeria.
+                  </p>
+                </div>
+
+                {/* 6 Clean Gateways - One for each dedicated page */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  
+                  {/* Gateway 1: Products */}
+                  <div
+                    onClick={() => handleNavigate('products')}
+                    className="group p-8 rounded-2xl bg-slate-900/80 hover:bg-slate-850 border border-slate-800 hover:border-amber-400/80 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl flex flex-col justify-between"
                   >
-                    <span>View Dedicated Affiliates Page</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-
-                {/* Clickable Partners Strip */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 pt-6">
-                  {AFFILIATES_LIST.slice(0, 6).map((partner) => (
-                    <button
-                      key={partner.id}
-                      onClick={() => handleNavigate('affiliates')}
-                      className="p-4 rounded-xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-amber-400 hover:shadow-md transition-all flex flex-col items-center justify-center gap-2 group cursor-pointer text-center"
-                    >
-                      <div className="h-10 w-full flex items-center justify-center">
-                        <img
-                          src={partner.logo}
-                          alt={partner.name}
-                          className="max-h-8 max-w-full object-contain filter group-hover:scale-105 transition-transform"
-                        />
-                      </div>
-                      <div className="text-[11px] font-bold text-slate-900 group-hover:text-amber-800">
-                        {partner.name}
-                      </div>
-                      <div className="text-[10px] text-slate-500 font-medium">
-                        {partner.country}
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </section>
-
-            {/* Core Architectural Solutions */}
-            <section className="py-16 lg:py-24 bg-slate-50 border-b border-slate-200">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="max-w-3xl mb-12">
-                  <div className="text-xs font-bold uppercase tracking-wider text-amber-700 mb-2">
-                    Architectural Systems
-                  </div>
-                  <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-display tracking-tight text-balance">
-                    Precision Aluminium Building Products & Cladding
-                  </h2>
-                  <p className="mt-4 text-base text-slate-600 leading-relaxed font-normal">
-                    Fabricated to European standards using Schüco profiles, Albond composite panels, and Saint-Gobain solar-reflective safety glass.
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  {/* Category 1: Curtain Walls */}
-                  <div className="group rounded-2xl bg-white border border-slate-200 hover:border-slate-300 p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-lg">
                     <div className="space-y-4">
-                      <div className="aspect-[4/3] rounded-xl overflow-hidden bg-slate-200">
-                        <img
-                          src="/assets/real/project-abuja-curtain-wall.jpg"
-                          alt="Structural curtain walling by Syndicated Metal"
-                          className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
-                        />
+                      <div className="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-400/30 text-amber-400 flex items-center justify-center font-bold text-lg">
+                        01
                       </div>
-                      <div>
-                        <div className="text-xs font-semibold text-amber-700 uppercase tracking-wider">Schüco & Saint-Gobain Systems</div>
-                        <h3 className="text-xl font-bold text-slate-900 font-display mt-1">Curtain Walls & Facades</h3>
-                        <p className="text-xs text-slate-600 mt-2 leading-relaxed">
-                          Frameless, semi-frameless, and curved structural curtain walls with solar-reflective Cool-Lite glass for Nigerian commercial towers.
-                        </p>
+                      <div className="space-y-1">
+                        <div className="text-xs font-bold uppercase tracking-wider text-amber-400">Products Catalog</div>
+                        <h3 className="text-xl font-bold text-white group-hover:text-amber-300 transition-colors font-display">
+                          Architectural Systems & Finishes
+                        </h3>
                       </div>
+                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        Explore our complete range of precision aluminium doors, sliding windows, curtain walls, and composite cladding specifications.
+                      </p>
                     </div>
-                    <div className="pt-6">
-                      <button
-                        onClick={() => handleNavigate('products')}
-                        className="text-xs font-semibold text-slate-900 group-hover:text-amber-700 flex items-center gap-1.5 transition-colors cursor-pointer"
-                      >
-                        <span>Explore Facade Systems</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </button>
+                    <div className="pt-6 flex items-center gap-2 text-xs font-bold text-amber-400 group-hover:text-amber-300">
+                      <span>View Products Page</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
 
-                  {/* Category 2: ACP Cladding */}
-                  <div className="group rounded-2xl bg-white border border-slate-200 hover:border-slate-300 p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-lg">
+                  {/* Gateway 2: Services */}
+                  <div
+                    onClick={() => handleNavigate('services')}
+                    className="group p-8 rounded-2xl bg-slate-900/80 hover:bg-slate-850 border border-slate-800 hover:border-amber-400/80 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl flex flex-col justify-between"
+                  >
                     <div className="space-y-4">
-                      <div className="aspect-[4/3] rounded-xl overflow-hidden bg-slate-200">
-                        <img
-                          src="/assets/real/project-abuja-cladding.jpg"
-                          alt="Albond ACP facade cladding by Syndicated Metal"
-                          className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
-                        />
+                      <div className="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-400/30 text-amber-400 flex items-center justify-center font-bold text-lg">
+                        02
                       </div>
-                      <div>
-                        <div className="text-xs font-semibold text-amber-700 uppercase tracking-wider">ALBOND (Turkey) Cladding</div>
-                        <h3 className="text-xl font-bold text-slate-900 font-display mt-1">Aluminium Composite Cladding</h3>
-                        <p className="text-xs text-slate-600 mt-2 leading-relaxed">
-                          Fire-rated aluminium composite panels (ACP) for commercial facades, soffits, sun blades, and entrance canopy fascias.
-                        </p>
+                      <div className="space-y-1">
+                        <div className="text-xs font-bold uppercase tracking-wider text-amber-400">Engineering Services</div>
+                        <h3 className="text-xl font-bold text-white group-hover:text-amber-300 transition-colors font-display">
+                          Fabrication & Installation
+                        </h3>
                       </div>
+                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        On-site reveal laser surveys, factory CNC extrusion fabrication in Ebute-Metta, and certified installation across Nigeria.
+                      </p>
                     </div>
-                    <div className="pt-6">
-                      <button
-                        onClick={() => handleNavigate('products')}
-                        className="text-xs font-semibold text-slate-900 group-hover:text-amber-700 flex items-center gap-1.5 transition-colors cursor-pointer"
-                      >
-                        <span>Explore Cladding Systems</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </button>
+                    <div className="pt-6 flex items-center gap-2 text-xs font-bold text-amber-400 group-hover:text-amber-300">
+                      <span>View Services Page</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
 
-                  {/* Category 3: Demountable Partitions & Windows */}
-                  <div className="group rounded-2xl bg-white border border-slate-200 hover:border-slate-300 p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-lg">
-                    <div className="space-y-4">
-                      <div className="aspect-[4/3] rounded-xl overflow-hidden bg-slate-200">
-                        <img
-                          src="/assets/real/project-deko-frosted.jpg"
-                          alt="DEKO demountable acoustic glass partitions by Syndicated Metal"
-                          className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
-                        />
-                      </div>
-                      <div>
-                        <div className="text-xs font-semibold text-amber-700 uppercase tracking-wider">DEKO (Denmark) Partitions</div>
-                        <h3 className="text-xl font-bold text-slate-900 font-display mt-1">Acoustic Glass Partitions</h3>
-                        <p className="text-xs text-slate-600 mt-2 leading-relaxed">
-                          Danish-engineered demountable glass partition systems with frosted branding, acoustic seals, and relocatable frames for corporate offices.
-                        </p>
-                      </div>
-                    </div>
-                    <div className="pt-6">
-                      <button
-                        onClick={() => handleNavigate('products')}
-                        className="text-xs font-semibold text-slate-900 group-hover:text-amber-700 flex items-center gap-1.5 transition-colors cursor-pointer"
-                      >
-                        <span>Explore Interior Systems</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Why Work With Us Section */}
-            <section className="py-16 lg:py-24 bg-white border-b border-slate-200">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="max-w-3xl mb-12">
-                  <div className="text-xs font-bold uppercase tracking-wider text-amber-700 mb-2">
-                    Professional Standards
-                  </div>
-                  <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-display tracking-tight text-balance">
-                    European Standards Manufactured in Nigeria
-                  </h2>
-                  <p className="mt-4 text-base text-slate-600 leading-relaxed font-normal">
-                    Combining certified international materials with precision on-site surveying, factory extrusion cutting, and seasoned installation teams across Nigeria.
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200/80 space-y-3">
-                    <div className="p-2.5 w-fit rounded-xl bg-amber-50 text-amber-700">
-                      <Ruler className="w-5 h-5" />
-                    </div>
-                    <h3 className="text-base font-bold text-slate-900 font-display">Exact On-Site Surveys</h3>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      We verify structural reveals and finished floor levels on-site prior to fabrication, preventing costly site modifications.
-                    </p>
-                  </div>
-
-                  <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200/80 space-y-3">
-                    <div className="p-2.5 w-fit rounded-xl bg-amber-50 text-amber-700">
-                      <Wrench className="w-5 h-5" />
-                    </div>
-                    <h3 className="text-base font-bold text-slate-900 font-display">Controlled Fabrication</h3>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      Calibrated mitre joints, reinforced corner cleats, and factory-fitted weather gaskets assembled in our Ebute-Metta factory yard.
-                    </p>
-                  </div>
-
-                  <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200/80 space-y-3">
-                    <div className="p-2.5 w-fit rounded-xl bg-amber-50 text-amber-700">
-                      <ShieldCheck className="w-5 h-5" />
-                    </div>
-                    <h3 className="text-base font-bold text-slate-900 font-display">Tropical Durability</h3>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      Finishes selected for UV resistance, salt-air corrosion protection in coastal Lagos/Niger Delta, and driving rain sealing.
-                    </p>
-                  </div>
-
-                  <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200/80 space-y-3">
-                    <div className="p-2.5 w-fit rounded-xl bg-amber-50 text-amber-700">
-                      <PhoneCall className="w-5 h-5" />
-                    </div>
-                    <h3 className="text-base font-bold text-slate-900 font-display">Nationwide Footprint</h3>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      Active regional centers and technical crews stationed in Lagos, Abuja FCT, and Port Harcourt.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Selected Real Projects Showcase Snapshot */}
-            <section className="py-16 lg:py-24 bg-slate-100/70 border-b border-slate-200">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-                  <div className="max-w-2xl">
-                    <div className="text-xs font-bold uppercase tracking-wider text-amber-700 mb-2">
-                      Real Executed Work
-                    </div>
-                    <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-display tracking-tight text-balance">
-                      Recent Projects Handled Across Nigeria
-                    </h2>
-                    <p className="mt-3 text-base text-slate-600 leading-relaxed font-normal">
-                      Verified installations by Syndicated Metal Industries across commercial towers, banks, and state facilities.
-                    </p>
-                  </div>
-                  <button
+                  {/* Gateway 3: Projects */}
+                  <div
                     onClick={() => handleNavigate('projects')}
-                    className="px-5 py-2.5 text-xs font-semibold text-slate-900 bg-white border border-slate-300 hover:bg-slate-50 rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
+                    className="group p-8 rounded-2xl bg-slate-900/80 hover:bg-slate-850 border border-slate-800 hover:border-amber-400/80 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl flex flex-col justify-between"
                   >
-                    <span>View All {REAL_PROJECTS_LIST.length} Projects</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {REAL_PROJECTS_LIST.slice(0, 3).map((proj) => (
-                    <div key={proj.id} className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow">
-                      <div className="relative aspect-[4/3] bg-slate-900">
-                        <img
-                          src={proj.image}
-                          alt={proj.title}
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute top-3 left-3 bg-amber-500 text-slate-950 text-[10px] font-bold uppercase px-2 py-0.5 rounded shadow-xs">
-                          Verified Project
-                        </div>
-                        <div className="absolute bottom-3 left-3 flex items-center gap-1 text-xs text-white bg-slate-950/80 px-2.5 py-1 rounded">
-                          <MapPin className="w-3.5 h-3.5 text-amber-400" />
-                          <span>{proj.locationLabel}</span>
-                        </div>
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-400/30 text-amber-400 flex items-center justify-center font-bold text-lg">
+                        03
                       </div>
-                      <div className="p-5 space-y-2">
-                        <div className="text-[11px] font-semibold text-amber-800">{proj.clientPartner}</div>
-                        <h3 className="text-base font-bold text-slate-900 font-display line-clamp-1">{proj.title}</h3>
-                        <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
-                          {proj.description}
-                        </p>
+                      <div className="space-y-1">
+                        <div className="text-xs font-bold uppercase tracking-wider text-amber-400">Projects Handled</div>
+                        <h3 className="text-xl font-bold text-white group-hover:text-amber-300 transition-colors font-display">
+                          10 Real Executed Projects
+                        </h3>
                       </div>
+                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        Inspect real executed curtain walls, commercial ACP cladding, and interior glazing across Lagos, Abuja, Edo, Bayelsa, and Anambra.
+                      </p>
                     </div>
-                  ))}
-                </div>
-              </div>
-            </section>
-
-            {/* Bottom Contact CTA Banner */}
-            <section className="py-16 bg-slate-900 text-white border-b border-slate-800">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-                <div className="max-w-2xl mx-auto space-y-3">
-                  <div className="text-xs font-bold uppercase tracking-wider text-amber-400">
-                    Get in Touch
+                    <div className="pt-6 flex items-center gap-2 text-xs font-bold text-amber-400 group-hover:text-amber-300">
+                      <span>View Projects Page</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
                   </div>
-                  <h2 className="text-3xl sm:text-4xl font-extrabold font-display tracking-tight text-balance">
-                    Ready to Discuss Your Building Schedule?
-                  </h2>
-                  <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-                    Whether you require a full curtain wall package, Albond composite cladding, or DEKO interior acoustic partitions, our technical team in Lagos, Abuja, and Port Harcourt is ready to evaluate your drawings.
-                  </p>
+
+                  {/* Gateway 4: Affiliates */}
+                  <div
+                    onClick={() => handleNavigate('affiliates')}
+                    className="group p-8 rounded-2xl bg-slate-900/80 hover:bg-slate-850 border border-slate-800 hover:border-amber-400/80 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl flex flex-col justify-between"
+                  >
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-400/30 text-amber-400 flex items-center justify-center font-bold text-lg">
+                        04
+                      </div>
+                      <div className="space-y-1">
+                        <div className="text-xs font-bold uppercase tracking-wider text-amber-400">Technical Partners</div>
+                        <h3 className="text-xl font-bold text-white group-hover:text-amber-300 transition-colors font-display">
+                          European Affiliate Alliances
+                        </h3>
+                      </div>
+                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        Certified partnerships with Schüco, Albond, DEKO, OWA, Saint-Gobain, META, and Lindner with bold logos and technical certifications.
+                      </p>
+                    </div>
+                    <div className="pt-6 flex items-center gap-2 text-xs font-bold text-amber-400 group-hover:text-amber-300">
+                      <span>View Affiliates Page</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+
+                  {/* Gateway 5: About Us */}
+                  <div
+                    onClick={() => handleNavigate('about')}
+                    className="group p-8 rounded-2xl bg-slate-900/80 hover:bg-slate-850 border border-slate-800 hover:border-amber-400/80 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl flex flex-col justify-between"
+                  >
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-400/30 text-amber-400 flex items-center justify-center font-bold text-lg">
+                        05
+                      </div>
+                      <div className="space-y-1">
+                        <div className="text-xs font-bold uppercase tracking-wider text-amber-400">About the Company</div>
+                        <h3 className="text-xl font-bold text-white group-hover:text-amber-300 transition-colors font-display">
+                          Syndicated Metal Industries
+                        </h3>
+                      </div>
+                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        Learn about our corporate background, operations in Lagos, Abuja, and Port Harcourt, and commitment to structural durability.
+                      </p>
+                    </div>
+                    <div className="pt-6 flex items-center gap-2 text-xs font-bold text-amber-400 group-hover:text-amber-300">
+                      <span>View About Page</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+
+                  {/* Gateway 6: Contact */}
+                  <div
+                    onClick={() => handleNavigate('contact')}
+                    className="group p-8 rounded-2xl bg-slate-900/80 hover:bg-slate-850 border border-slate-800 hover:border-amber-400/80 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl flex flex-col justify-between"
+                  >
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-400/30 text-amber-400 flex items-center justify-center font-bold text-lg">
+                        06
+                      </div>
+                      <div className="space-y-1">
+                        <div className="text-xs font-bold uppercase tracking-wider text-amber-400">Direct Contact & Quotes</div>
+                        <h3 className="text-xl font-bold text-white group-hover:text-amber-300 transition-colors font-display">
+                          Request a Consultation
+                        </h3>
+                      </div>
+                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        Send opening schedules for rapid estimation, or connect directly with our regional teams via phone (+234 803 316 9896) or WhatsApp.
+                      </p>
+                    </div>
+                    <div className="pt-6 flex items-center gap-2 text-xs font-bold text-amber-400 group-hover:text-amber-300">
+                      <span>View Contact Page</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+
                 </div>
 
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-                  <button
-                    onClick={handleRequestQuote}
-                    className="w-full sm:w-auto px-6 py-3.5 text-sm font-semibold text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-lg shadow-sm transition-all cursor-pointer"
-                  >
-                    Request a Quotation & Consultation
-                  </button>
-                  <button
-                    onClick={() => handleNavigate('affiliates')}
-                    className="w-full sm:w-auto px-6 py-3.5 text-sm font-semibold text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg transition-all cursor-pointer"
-                  >
-                    Explore Affiliate Partners
-                  </button>
-                </div>
               </div>
             </section>
           </div>

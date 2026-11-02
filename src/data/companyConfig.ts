@@ -209,7 +209,7 @@ export const AFFILIATES_LIST: AffiliatePartner[] = [
     legalEntity: "LINDNER GROUP SE",
     country: "Germany",
     countryFlag: "🇩🇪",
-    logo: "/assets/real/schuco.png", // German engineering partner in catalog
+    logo: "/assets/real/lindner.svg",
     specialization: "Modular Heavy-Duty Raised Access Floors & Underfloor Service Plenums",
     systemsSupplied: [
       "NORTEC calcium sulphate high-load floor panels",
