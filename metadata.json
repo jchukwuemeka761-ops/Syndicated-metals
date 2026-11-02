@@ -1,0 +1,6 @@
+{
+  "name": "Syndicated Metal Industries Limited",
+  "description": "Nigerian manufacturer and installer of precision architectural aluminium doors, windows, curtain walls, and building systems in Lagos and Port Harcourt.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
