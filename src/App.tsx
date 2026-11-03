@@ -5,6 +5,7 @@ import { ProductCatalog } from './components/ProductCatalog.tsx';
 import { ServicesSection } from './components/ServicesSection.tsx';
 import { ProjectsGallery } from './components/ProjectsGallery.tsx';
 import { AffiliatesPage } from './components/AffiliatesPage.tsx';
+import { LocationsPage } from './components/LocationsPage.tsx';
 import { AboutSection } from './components/AboutSection.tsx';
 import { QuoteSection } from './components/QuoteSection.tsx';
 import { Footer } from './components/Footer.tsx';
@@ -268,14 +269,39 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* Gateway 5: About Us */}
+                  {/* Gateway 5: Locations & Google Maps */}
+                  <div
+                    onClick={() => handleNavigate('locations')}
+                    className="group p-8 rounded-2xl bg-slate-900/80 hover:bg-slate-850 border border-slate-800 hover:border-amber-400/80 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl flex flex-col justify-between"
+                  >
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-400/30 text-amber-400 flex items-center justify-center font-bold text-lg">
+                        05
+                      </div>
+                      <div className="space-y-1">
+                        <div className="text-xs font-bold uppercase tracking-wider text-amber-400">Live Maps & Facilities</div>
+                        <h3 className="text-xl font-bold text-white group-hover:text-amber-300 transition-colors font-display">
+                          Locations Home & Abroad
+                        </h3>
+                      </div>
+                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        Find your way to our Lagos factory, Abuja, or Port Harcourt units with interactive Google Maps and one-click turn-by-turn navigation.
+                      </p>
+                    </div>
+                    <div className="pt-6 flex items-center gap-2 text-xs font-bold text-amber-400 group-hover:text-amber-300">
+                      <span>View Locations & Maps</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+
+                  {/* Gateway 6: About Us */}
                   <div
                     onClick={() => handleNavigate('about')}
                     className="group p-8 rounded-2xl bg-slate-900/80 hover:bg-slate-850 border border-slate-800 hover:border-amber-400/80 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl flex flex-col justify-between"
                   >
                     <div className="space-y-4">
                       <div className="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-400/30 text-amber-400 flex items-center justify-center font-bold text-lg">
-                        05
+                        06
                       </div>
                       <div className="space-y-1">
                         <div className="text-xs font-bold uppercase tracking-wider text-amber-400">About the Company</div>
@@ -293,14 +319,14 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* Gateway 6: Contact */}
+                  {/* Gateway 7: Contact */}
                   <div
                     onClick={() => handleNavigate('contact')}
                     className="group p-8 rounded-2xl bg-slate-900/80 hover:bg-slate-850 border border-slate-800 hover:border-amber-400/80 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl flex flex-col justify-between"
                   >
                     <div className="space-y-4">
                       <div className="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-400/30 text-amber-400 flex items-center justify-center font-bold text-lg">
-                        06
+                        07
                       </div>
                       <div className="space-y-1">
                         <div className="text-xs font-bold uppercase tracking-wider text-amber-400">Direct Contact & Quotes</div>
@@ -359,7 +385,14 @@ export default function App() {
           </div>
         )}
 
-        {/* VIEW 6: ABOUT PAGE */}
+        {/* VIEW 6: LOCATIONS & GOOGLE MAPS PAGE */}
+        {activeTab === 'locations' && (
+          <div>
+            <LocationsPage onRequestQuote={handleRequestQuote} />
+          </div>
+        )}
+
+        {/* VIEW 7: ABOUT PAGE */}
         {activeTab === 'about' && (
           <div>
             <AboutSection
@@ -369,7 +402,7 @@ export default function App() {
           </div>
         )}
 
-        {/* VIEW 7: CONTACT / REQUEST A QUOTE PAGE */}
+        {/* VIEW 8: CONTACT / REQUEST A QUOTE PAGE */}
         {activeTab === 'contact' && (
           <div>
             <QuoteSection

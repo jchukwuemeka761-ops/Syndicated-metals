@@ -23,6 +23,7 @@ export const Header: React.FC<HeaderProps> = ({
     { id: 'services', label: 'Services' },
     { id: 'projects', label: 'Projects' },
     { id: 'affiliates', label: 'Affiliates' },
+    { id: 'locations', label: 'Locations & Maps' },
     { id: 'about', label: 'About' },
     { id: 'contact', label: 'Contact' },
   ];
@@ -82,7 +83,7 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
 
           {/* Zone 2: Navigation Links (Clean single-line text links with subtle hover underlines) */}
-          <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-700" aria-label="Main Navigation">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-sm font-medium text-slate-700" aria-label="Main Navigation">
             {navItems.map((item) => {
               const isActive = activeTab === item.id;
               return (

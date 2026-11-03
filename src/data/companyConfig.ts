@@ -5,8 +5,12 @@
  */
 
 export interface LocationInfo {
+  id: string;
   city: string;
   state: string;
+  country: string;
+  countryFlag: string;
+  region: 'nigeria' | 'international';
   role: string;
   address: string;
   additionalAddress?: string;
@@ -15,6 +19,13 @@ export interface LocationInfo {
   email: string;
   openingHours: string;
   isVerified: boolean;
+  lat: number;
+  lng: number;
+  zoom: number;
+  mapQuery: string;
+  directionQuery: string;
+  highlights: string[];
+  partnerOrDivision?: string;
 }
 
 export interface AffiliatePartner {
@@ -46,6 +57,249 @@ export interface CompanyConfig {
   editorialNotice: string;
 }
 
+export const HOME_LOCATIONS: LocationInfo[] = [
+  {
+    id: "lagos",
+    city: "Lagos",
+    state: "Lagos State",
+    country: "Nigeria",
+    countryFlag: "🇳🇬",
+    region: "nigeria",
+    role: "Factory Yard & Operations Headquarters",
+    address: "Nigeria Railway Corporation Yard, Old Apapa Road, Beside Fire Service, Ebute-Metta, Lagos.",
+    additionalAddress: "109, Tafawa Balewa Crescent, Off 22 Adeniran Ogunsanya Street, Surulere, Lagos.",
+    phone: "+234 803 316 9896",
+    additionalPhone: "+234 803 720 3407",
+    email: "info@syndicatedmetal.com",
+    openingHours: "Mon – Sat: 8:30 AM – 5:30 PM",
+    isVerified: true,
+    lat: 6.4883,
+    lng: 3.3768,
+    zoom: 16,
+    mapQuery: "Nigeria Railway Corporation Yard, Ebute Metta, Lagos, Nigeria",
+    directionQuery: "Nigeria Railway Corporation Yard, Old Apapa Road, Ebute-Metta, Lagos, Nigeria",
+    highlights: [
+      "Central heavy fabrication works & CNC extrusion cutting center",
+      "Curtain wall pre-assembly & structural silicone glazing line",
+      "Primary warehouse for European partner extrusions & hardware",
+      "Executive headquarters & technical estimation division"
+    ],
+    partnerOrDivision: "Central Factory & Corporate Headquarters"
+  },
+  {
+    id: "abuja",
+    city: "Abuja",
+    state: "Federal Capital Territory",
+    country: "Nigeria",
+    countryFlag: "🇳🇬",
+    region: "nigeria",
+    role: "Northern Regional Office & Technical Center",
+    address: "No. 21 Harper Crescent, Wuse Zone 7, Abuja FCT, Nigeria.",
+    additionalAddress: "29 Parakou Crescent, Off Aminu Kano Crescent, Wuse 2, Abuja.",
+    phone: "+234 803 385 7111",
+    additionalPhone: "+234 803 316 9896",
+    email: "info.abuja@syndicatedmetal.com",
+    openingHours: "Mon – Sat: 8:30 AM – 5:00 PM",
+    isVerified: true,
+    lat: 9.0685,
+    lng: 7.4642,
+    zoom: 16,
+    mapQuery: "21 Harper Crescent, Wuse Zone 7, Abuja, Nigeria",
+    directionQuery: "21 Harper Crescent, Wuse Zone 7, Abuja, Nigeria",
+    highlights: [
+      "Technical engineering office for FCT & Northern Nigerian developments",
+      "Architectural consultation & mock-up sample display suite",
+      "Rapid-response installation management for federal & commercial projects"
+    ],
+    partnerOrDivision: "Northern Regional Directorate"
+  },
+  {
+    id: "port-harcourt",
+    city: "Port Harcourt",
+    state: "Rivers State",
+    country: "Nigeria",
+    countryFlag: "🇳🇬",
+    region: "nigeria",
+    role: "South-South Regional Fabrication & Project Unit",
+    address: "23 Mini Ezekwu Street, Hillview Estate, Port Harcourt, Rivers State, Nigeria.",
+    additionalAddress: "6 Old Aba Road, Rumuogba, Port Harcourt, Rivers State.",
+    phone: "+234 806 212 4700",
+    additionalPhone: "+234 803 316 9896",
+    email: "info.phc@syndicatedmetal.com",
+    openingHours: "Mon – Sat: 8:30 AM – 5:00 PM",
+    isVerified: true,
+    lat: 4.8242,
+    lng: 7.0336,
+    zoom: 16,
+    mapQuery: "23 Mini Ezekwu Street, Hillview Estate, Port Harcourt, Nigeria",
+    directionQuery: "23 Mini Ezekwu Street, Hillview Estate, Port Harcourt, Rivers State, Nigeria",
+    highlights: [
+      "Dedicated South-South installation crew & regional logistics yard",
+      "Marine-grade corrosion-resistant aluminium & cladding fabrication",
+      "Direct technical service for Rivers, Bayelsa, Delta & Akwa Ibom contracts"
+    ],
+    partnerOrDivision: "South-South Regional Hub"
+  }
+];
+
+export const ABROAD_LOCATIONS: LocationInfo[] = [
+  {
+    id: "turkey-albond",
+    city: "Istanbul / Tekirdağ",
+    state: "Marmara Region",
+    country: "Turkey",
+    countryFlag: "🇹🇷",
+    region: "international",
+    role: "Composite Panel & Cladding Manufacturing Partner Hub",
+    address: "Çerkezköy Organize Sanayi Bölgesi (OSB), Gazi Mustafa Kemal Paşa Mah., 59500 Tekirdağ / Istanbul, Turkey.",
+    phone: "+90 282 758 14 00",
+    email: "export@albond.com.tr",
+    openingHours: "Mon – Fri: 08:30 – 17:30 (EET)",
+    isVerified: true,
+    lat: 41.2855,
+    lng: 27.9982,
+    zoom: 14,
+    mapQuery: "Albond Alüminyum, Çerkezköy OSB, Tekirdağ, Turkey",
+    directionQuery: "Albond Alüminyum, Çerkezköy OSB, Tekirdağ, Turkey",
+    highlights: [
+      "State-of-the-art continuous coil coating & ACP lamination mill",
+      "Fire-classified A2 non-combustible architectural panel production",
+      "Direct export dispatch partner for Syndicated Metal projects across West Africa"
+    ],
+    partnerOrDivision: "ALBOND Aluminium Sanayi ve Ticaret A.Ş."
+  },
+  {
+    id: "denmark-deko",
+    city: "Copenhagen / Taastrup",
+    state: "Capital Region of Denmark",
+    country: "Denmark",
+    countryFlag: "🇩🇰",
+    region: "international",
+    role: "Acoustic Glazed Partitions Engineering & Export Hub",
+    address: "Mågevej 2-4, DK-2630 Taastrup, Greater Copenhagen, Denmark.",
+    phone: "+45 43 55 77 11",
+    email: "info@deko.com",
+    openingHours: "Mon – Fri: 08:00 – 16:00 (CET)",
+    isVerified: true,
+    lat: 55.6515,
+    lng: 12.2985,
+    zoom: 14,
+    mapQuery: "DEKO partitions, Maagevej 2-4, 2630 Taastrup, Denmark",
+    directionQuery: "DEKO partitions, Maagevej 2-4, 2630 Taastrup, Denmark",
+    highlights: [
+      "Certified acoustic laboratory & fire partition testing facility",
+      "Danish minimalist architectural hardware & profile fabrication",
+      "Technical supplier for Syndicated Metal interior demountable glass systems"
+    ],
+    partnerOrDivision: "DEKO Partitions Limited (Denmark)"
+  },
+  {
+    id: "germany-schueco",
+    city: "Bielefeld",
+    state: "North Rhine-Westphalia",
+    country: "Germany",
+    countryFlag: "🇩🇪",
+    region: "international",
+    role: "Architectural Aluminium & Curtain Wall Engineering Center",
+    address: "Karolinenstraße 1-15, 33609 Bielefeld, Germany.",
+    phone: "+49 521 783-0",
+    email: "info@schueco.com",
+    openingHours: "Mon – Fri: 08:00 – 17:00 (CET)",
+    isVerified: true,
+    lat: 52.0302,
+    lng: 8.5325,
+    zoom: 15,
+    mapQuery: "Schüco International KG, Karolinenstraße 1-15, 33609 Bielefeld, Germany",
+    directionQuery: "Schüco International KG, Karolinenstraße 1-15, 33609 Bielefeld, Germany",
+    highlights: [
+      "Global benchmark for high-performance structural facade engineering",
+      "Thermal break profile extrusion systems & high-security multipoint locks",
+      "Extrusion design base for premium commercial projects in Nigeria"
+    ],
+    partnerOrDivision: "Schüco International KG (Germany)"
+  },
+  {
+    id: "france-saintgobain",
+    city: "Courbevoie / Paris",
+    state: "Île-de-France",
+    country: "France",
+    countryFlag: "🇫🇷",
+    region: "international",
+    role: "Architectural Glass Technology & Innovation Center",
+    address: "Tour Saint-Gobain, 12 Place de l'Iris, 92400 Courbevoie, Paris La Défense, France.",
+    phone: "+33 1 88 54 00 00",
+    email: "architectural.glass@saint-gobain.com",
+    openingHours: "Mon – Fri: 08:30 – 17:30 (CET)",
+    isVerified: true,
+    lat: 48.8897,
+    lng: 2.2472,
+    zoom: 15,
+    mapQuery: "Tour Saint-Gobain, 12 Place de l'Iris, 92400 Courbevoie, France",
+    directionQuery: "Tour Saint-Gobain, 12 Place de l'Iris, 92400 Courbevoie, France",
+    highlights: [
+      "Solar control Low-E glass development for tropical African climates",
+      "Safety laminated & acoustic glazed solutions specification hub",
+      "Primary glass supplier partner for Syndicated Metal installations"
+    ],
+    partnerOrDivision: "Saint-Gobain Glass International (France)"
+  },
+  {
+    id: "germany-owa",
+    city: "Amorbach",
+    state: "Bavaria",
+    country: "Germany",
+    countryFlag: "🇩🇪",
+    region: "international",
+    role: "Acoustic Suspended Ceilings Manufacturing Center",
+    address: "Dr.-F.-A.-Freundt-Straße 3, 63916 Amorbach, Bavaria, Germany.",
+    phone: "+49 9373 201-0",
+    email: "info@owa.de",
+    openingHours: "Mon – Fri: 08:00 – 16:30 (CET)",
+    isVerified: true,
+    lat: 49.6450,
+    lng: 9.2200,
+    zoom: 14,
+    mapQuery: "OWA Odenwald Faserplattenwerk, Dr.-F.-A.-Freundt-Straße 3, 63916 Amorbach, Germany",
+    directionQuery: "OWA Odenwald Faserplattenwerk, Dr.-F.-A.-Freundt-Straße 3, 63916 Amorbach, Germany",
+    highlights: [
+      "Engineered mineral wool acoustic ceiling tile manufacture",
+      "Concealed and exposed seismic/fire suspension grid systems",
+      "Exclusive distribution & installation alliance with Syndicated Metal"
+    ],
+    partnerOrDivision: "Odenwald Faserplattenwerk GmbH (OWA Germany)"
+  },
+  {
+    id: "germany-meta",
+    city: "Polch",
+    state: "Rhineland-Palatinate",
+    country: "Germany",
+    countryFlag: "🇩🇪",
+    region: "international",
+    role: "Engineered Sanitary Privacy Cubicles Production Hub",
+    address: "Industriestraße 1-3, 56751 Polch, Germany.",
+    phone: "+49 2654 987-0",
+    email: "info@meta.de",
+    openingHours: "Mon – Fri: 08:00 – 16:30 (CET)",
+    isVerified: true,
+    lat: 50.3015,
+    lng: 7.3180,
+    zoom: 14,
+    mapQuery: "META Trennwandanlagen GmbH & Co. KG, Industriestraße 1-3, 56751 Polch, Germany",
+    directionQuery: "META Trennwandanlagen GmbH & Co. KG, Industriestraße 1-3, 56751 Polch, Germany",
+    highlights: [
+      "Solid grade laminate (HPL) waterproof toilet cubicle engineering",
+      "Vandal-resistant anodized aluminium hardware manufacture",
+      "Installed nationwide across Nigerian airport and commercial hubs"
+    ],
+    partnerOrDivision: "META Trennwandanlagen GmbH & Co. KG (Germany)"
+  }
+];
+
+export const ALL_LOCATIONS_LIST: LocationInfo[] = [
+  ...HOME_LOCATIONS,
+  ...ABROAD_LOCATIONS
+];
+
 export const COMPANY_CONFIG: CompanyConfig = {
   companyName: "Syndicated Metal Industries",
   legalName: "Syndicated Metal Industries Limited",
@@ -57,40 +311,7 @@ export const COMPANY_CONFIG: CompanyConfig = {
   whatsappDisplay: "+234 803 316 9896",
   generalEmail: "info@syndicatedmetal.com",
   generalPhone: "+234 803 316 9896",
-  locations: [
-    {
-      city: "Lagos",
-      state: "Lagos State",
-      role: "Factory Yard & Operations Headquarters",
-      address: "Nigeria Railway Corporation Yard, Old Apapa Road, Beside Fire Service, Ebute-Metta, Lagos.",
-      additionalAddress: "109, Tafawa Balewa Crescent, Off 22 Adeniran Ogunsanya Street, Surulere, Lagos.",
-      phone: "+234 803 316 9896",
-      additionalPhone: "+234 803 720 3407",
-      email: "info@syndicatedmetal.com",
-      openingHours: "Mon – Sat: 9:00 AM – 5:00 PM",
-      isVerified: true
-    },
-    {
-      city: "Abuja",
-      state: "Federal Capital Territory",
-      role: "Northern Regional Office & Technical Center",
-      address: "No. 21 Harper Crescent, Wuse Zone 7, Abuja FCT, Nigeria.",
-      phone: "+234 803 385 7111",
-      email: "info.abuja@syndicatedmetal.com",
-      openingHours: "Mon – Sat: 9:00 AM – 5:00 PM",
-      isVerified: true
-    },
-    {
-      city: "Port Harcourt",
-      state: "Rivers State",
-      role: "South-South Regional Fabrication & Project Unit",
-      address: "23 Mini Ezekwu Street, Hillview Estate, Port Harcourt, Rivers State, Nigeria.",
-      phone: "+234 806 212 4700",
-      email: "info.phc@syndicatedmetal.com",
-      openingHours: "Mon – Sat: 9:00 AM – 5:00 PM",
-      isVerified: true
-    }
-  ],
+  locations: ALL_LOCATIONS_LIST,
   editorialNotice: "Corporate addresses, verified phone numbers, and official international technical partnerships verified from Syndicated Metal Industries records."
 };
 

@@ -104,6 +104,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAudit }) => {
               </li>
               <li>
                 <button
+                  onClick={() => onNavigate('locations')}
+                  className="hover:text-amber-400 font-semibold transition-colors cursor-pointer flex items-center gap-1 text-slate-200"
+                >
+                  <MapPin className="w-3.5 h-3.5 text-amber-500" />
+                  <span>Locations & Google Maps</span>
+                </button>
+              </li>
+              <li>
+                <button
                   onClick={() => onNavigate('about')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
@@ -123,12 +132,21 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAudit }) => {
 
           {/* Regional Hubs (3 Cols) */}
           <div className="lg:col-span-3 space-y-3">
-            <div className="text-xs font-bold uppercase tracking-wider text-white">
-              Operations Hubs
+            <div className="text-xs font-bold uppercase tracking-wider text-white flex items-center justify-between">
+              <span>Operations Hubs</span>
+              <button
+                onClick={() => onNavigate('locations')}
+                className="text-[11px] font-bold text-amber-400 hover:text-amber-300 underline underline-offset-2 cursor-pointer"
+              >
+                Live Maps & GPS
+              </button>
             </div>
             <div className="space-y-3 text-xs text-slate-400">
-              <div>
-                <div className="font-semibold text-slate-200 flex items-center gap-1">
+              <div
+                onClick={() => onNavigate('locations')}
+                className="cursor-pointer group hover:bg-slate-900/60 p-1.5 -ml-1.5 rounded-lg transition-colors"
+              >
+                <div className="font-semibold text-slate-200 group-hover:text-amber-300 flex items-center gap-1">
                   <MapPin className="w-3.5 h-3.5 text-amber-500" />
                   <span>Lagos Facility (Headquarters)</span>
                 </div>
@@ -137,8 +155,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAudit }) => {
                 </div>
               </div>
 
-              <div>
-                <div className="font-semibold text-slate-200 flex items-center gap-1">
+              <div
+                onClick={() => onNavigate('locations')}
+                className="cursor-pointer group hover:bg-slate-900/60 p-1.5 -ml-1.5 rounded-lg transition-colors"
+              >
+                <div className="font-semibold text-slate-200 group-hover:text-amber-300 flex items-center gap-1">
                   <MapPin className="w-3.5 h-3.5 text-amber-500" />
                   <span>Abuja FCT Office</span>
                 </div>
@@ -147,8 +168,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAudit }) => {
                 </div>
               </div>
 
-              <div>
-                <div className="font-semibold text-slate-200 flex items-center gap-1">
+              <div
+                onClick={() => onNavigate('locations')}
+                className="cursor-pointer group hover:bg-slate-900/60 p-1.5 -ml-1.5 rounded-lg transition-colors"
+              >
+                <div className="font-semibold text-slate-200 group-hover:text-amber-300 flex items-center gap-1">
                   <MapPin className="w-3.5 h-3.5 text-amber-500" />
                   <span>Port Harcourt Unit</span>
                 </div>
